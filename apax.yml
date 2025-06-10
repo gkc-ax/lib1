@@ -1,6 +1,6 @@
 # General information
-name: "lib1"
-version: 0.0.1
+name: "@gokeycolor/lib1"
+version: 0.0.4
 type: lib
 keywords:
   - library
@@ -17,13 +17,30 @@ catalogs:
   "@ax/simatic-ax": ^2504.0.0
 # Dependencies
 devDependencies:
-  "@ax/sdk": ^2504.0.0
+  "@ax/sdk": 2504.0.0
+  "@ax-vscode/siemens.axunit-vscode": ^1.12.5
 
 # Environment variables
 variables:
+  # an arbitrary directory that can be chosen freely
+  PATH_NAME: "./bin/handover-folder"
+  # you can change the predefined output path where the TIA Portal library will be generated
+  TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
+  # set the path to your local TIA Portal installation
+  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V18"
+  # remove, if you do not want to allow debugging of your code
   APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
+    - "--debug"
 
 # Files, which will be shipped with the library
 files:
-  - bin
+  - ./bin/1500
+  # - ./src
+
+scripts:
+  export-tialib: ax2tia -i ./bin/1500/*.lib -o "$PATH_NAME"
+  import-tialib: '"$TIA_INSTALL_PATH\\bin\\Siemens.Simatic.Lang.Library.Importer.exe" -i "$PATH_NAME" -o "$TIA_GLOBAL_LIB_PATH"'
+  create-tialib:
+    - apax build
+    - apax export-tialib
+    - apax import-tialib
