@@ -1,6 +1,6 @@
 # General information
-name: "@gokeycolor/lib1"
-version: 0.0.4
+name: "@gkc-ax/lib1"
+version: 0.0.12
 type: lib
 keywords:
   - library
@@ -19,6 +19,7 @@ catalogs:
 devDependencies:
   "@ax/sdk": 2504.0.0
   "@ax-vscode/siemens.axunit-vscode": ^1.12.5
+  "@ax/ax2tia": 11.0.18
 
 # Environment variables
 variables:
@@ -27,7 +28,7 @@ variables:
   # you can change the predefined output path where the TIA Portal library will be generated
   TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
   # set the path to your local TIA Portal installation
-  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V18"
+  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V20"
   # remove, if you do not want to allow debugging of your code
   APAX_BUILD_ARGS:
     - "--debug"
@@ -35,6 +36,7 @@ variables:
 # Files, which will be shipped with the library
 files:
   - ./bin/1500
+  - ./bin/llvm
   # - ./src
 
 scripts:
@@ -44,3 +46,9 @@ scripts:
     - apax build
     - apax export-tialib
     - apax import-tialib
+
+registries:
+  '@gkc-ax': https://npm.pkg.github.com
+  '@simatic-ax': https://npm.pkg.github.com
+dependencies:
+  "@ax/system": 10.0.24

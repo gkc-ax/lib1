@@ -1,7 +1,7 @@
 NAMESPACE gkc.math
     CLASS PUBLIC MyMath
         METHOD  PUBLIC Arithmometer : INT
-            VAR_INPUT
+            VAR_INPUT 
                 a : INT;
                 b : INT;
                 operator : CHAR;
