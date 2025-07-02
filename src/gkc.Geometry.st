@@ -4,12 +4,18 @@ NAMESPACE gkc.Geometry
     END_INTERFACE
 
     CLASS Circle IMPLEMENTS Shape
-        VAR PUBLIC
+        VAR PRIVATE
             radius: LREAL;
         END_VAR
         VAR CONSTANT
             PI : LREAL:=3.1415;
         END_VAR
+        METHOD PUBLIC initialize
+            VAR_INPUT
+                radius:LREAL:=10.0;
+            END_VAR
+            this.radius:=radius;
+        END_METHOD
         METHOD PUBLIC calculateArea : LREAL
             calculateArea:=radius * radius * PI;            
         END_METHOD
