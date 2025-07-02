@@ -1,11 +1,11 @@
 {
   "name": "@gkc-ax/lib1",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "lockFileVersion": "2",
   "installStrategy": "strict",
   "root": {
     "name": "@gkc-ax/lib1",
-    "version": "0.0.9",
+    "version": "0.0.12",
     "dependencies": {
       "@ax/system": "10.0.24"
     },

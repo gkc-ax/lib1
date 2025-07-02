@@ -1,6 +1,6 @@
 # General information
 name: "@gkc-ax/lib1"
-version: 0.0.12
+version: 0.0.14
 type: lib
 keywords:
   - library
@@ -47,8 +47,5 @@ scripts:
     - apax export-tialib
     - apax import-tialib
 
-registries:
-  '@gkc-ax': https://npm.pkg.github.com
-  '@simatic-ax': https://npm.pkg.github.com
 dependencies:
   "@ax/system": 10.0.24

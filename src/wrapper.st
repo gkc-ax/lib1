@@ -1,4 +1,5 @@
 USING gkc.math;
+USING gkc.Geometry;
 NAMESPACE MyLibraryWrapper
     FUNCTION_BLOCK Arithmometer
         VAR_INPUT 
