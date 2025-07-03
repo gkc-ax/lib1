@@ -1,8 +1,15 @@
 NAMESPACE gkc.Geometry
+    // Shape 接口
+    // 定义calculateArea 方法，返回类型为 LREAL
     INTERFACE Shape
         METHOD calculateArea : LREAL END_METHOD
     END_INTERFACE
-
+    
+    // Circle 类 
+    // 继承Shape 接口
+    // 定义公共变量 radius 和常量 PI
+    // 实现 calculateArea 方法
+    // 提供了 initialize 方法用于初始化
     CLASS Circle IMPLEMENTS Shape
         VAR PRIVATE
             radius: LREAL;
@@ -21,6 +28,12 @@ NAMESPACE gkc.Geometry
         END_METHOD
     END_CLASS    
 
+    // Polygon 抽象类 
+    // 继承Shape接口
+    // 包含私有变量 sides
+    // 定义抽象方法 calculateArea
+    // 公共方法 getSides
+    // 受保护方法 setSides
     CLASS ABSTRACT Polygon IMPLEMENTS Shape
         VAR PRIVATE
             sides : int;
@@ -37,6 +50,10 @@ NAMESPACE gkc.Geometry
         END_METHOD      
     END_CLASS
 
+    // Triangle 类继承自 Polygon
+    // 含私有变量 base 和 height
+    // 提供了 initialize 方法用于初始化
+    // 重写了 calculateArea 方法
     CLASS Triangle EXTENDS Polygon
         VAR PRIVATE
             base : LREAL;
@@ -56,6 +73,10 @@ NAMESPACE gkc.Geometry
         END_METHOD
     END_CLASS
 
+    // Square 类继承自 Polygon
+    // 包含私有变量 sideLength
+    // 提供 initialize 方法用于初始化
+    // 重写 calculateArea 方法
     CLASS Square EXTENDS Polygon
         VAR PRIVATE
             sideLength : LREAL;         
